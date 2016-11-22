@@ -8,4 +8,4 @@ Check out our [official documentation](https://www.devtodev.com/help/96/devtodev
 
 Changelog
 ---------
-See [wiki page](https://github.com/devtodev-analytics/macos-sdk/releases).
+See [releases](https://github.com/devtodev-analytics/macos-sdk/releases).
