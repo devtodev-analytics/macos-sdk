@@ -5,16 +5,30 @@
 #import "SocialNetwork.h"
 #import "Gender.h"
 #import "AccrualType.h"
-#import "CoreLog.h"
+#import "ReferralProperty.h"
+#import "People.h"
 
 /**
  * devtodev sdk
- * @version 1.1.4
+ * @version 1.2
  **/
 
 @interface DevToDev : NSObject
 
+//
+// Enable debug mode
+//
++(void) setActiveLog: (BOOL) isActive;
+
+//
+// Initialize sdk
+//
+
 +(void) initWithKey: (NSString *) key andSecretKey: (NSString *) secretKey;
+
+//
+// Base methods
+//
 
 +(void) sendBufferedEvents;
 
@@ -28,7 +42,7 @@
 
 +(void) inAppPurchase:(NSString *)purchaseId withPurchaseType:(NSString *)purchaseType andPurchaseAmount:(NSInteger)purchaseAmount andResources: (NSDictionary *) resources;
 
-+(void) tutorialCompleted: (NSUInteger) tutorialState;
++(void) tutorialCompleted: (NSInteger) tutorialState;
 
 +(void) levelUp: (NSUInteger) level;
 
@@ -42,23 +56,31 @@
 
 +(void) socialNetworkPost: (SocialNetwork *) socialNetwork withReason: (NSString *) reason;
 
-+(void) age: (NSInteger) age;
+//
+// Additional methods
+//
 
-+(void) gender: (Gender) gender;
++(void) referrer: (NSDictionary<ReferralProperty*, NSString*> *) utm;
 
-+(void) cheater: (BOOL) cheater;
+//
+// User profile methods
+//
 
-+(void) setUserId: (NSString *) userID;
++(People *) activeUser;
 
-+(void) replaceUserId: (NSString *) prevUserId to: (NSString *) userID;
++(void) setUserId: (NSString *) userId;
+
++(void) replaceUserId: (NSString *) prevUserId to: (NSString *) userId;
+
+//
+// Getters
+//
 
 +(NSString *) getUserId;
 
 +(NSString *) getOpenUdid;
 
 +(NSString *) getOdin1;
-
-+(void) setActiveLog: (BOOL) isActive;
 
 +(NSString *) sdkVersion;
 
