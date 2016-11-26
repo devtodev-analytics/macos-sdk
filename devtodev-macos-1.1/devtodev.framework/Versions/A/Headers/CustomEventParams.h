@@ -4,6 +4,8 @@
 
 - (id) init;
 
+- (void) putParam: (NSString *) key withDate: (NSDate *) value;
+
 - (void) putParam: (NSString *) key withString: (NSString *) value;
 
 - (void) putParam: (NSString *) key withInt: (int) value;

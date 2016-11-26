@@ -5,33 +5,16 @@
 #import "SocialNetwork.h"
 #import "Gender.h"
 #import "AccrualType.h"
-#import "ReferralProperty.h"
-#import "People.h"
-
-#import "ProgressionEventParams.h"
-#import "LocationEventParams.h"
+#import "CoreLog.h"
 
 /**
  * devtodev sdk
- * @version 1.3
+ * @version 1.1
  **/
 
 @interface DevToDev : NSObject
 
-//
-// Enable debug mode
-//
-+(void) setActiveLog: (BOOL) isActive;
-
-//
-// Initialize sdk
-//
-
 +(void) initWithKey: (NSString *) key andSecretKey: (NSString *) secretKey;
-
-//
-// Base methods
-//
 
 +(void) sendBufferedEvents;
 
@@ -39,17 +22,13 @@
 
 +(void) customEvent: (NSString *) eventName withParams: (CustomEventParams *) params;
 
-+(void) startProgressionEvent: (NSString *) eventId withParameters: (ProgressionEventParams *) parameters;
-
-+(void) endProgressionEvent: (NSString *) eventId withParameters: (ProgressionEventParams *) parameters;
-
 +(void) currencyAccrual: (NSInteger) amount withCurrencyName: (NSString *) currencyName andCurrencyType: (AccrualType) accrualType;
 
 +(void) inAppPurchase: (NSString *) purchaseId withPurchaseType: (NSString *) purchaseType andPurchaseAmount: (NSInteger) purchaseAmount andPurchasePrice: (NSInteger) purchaseprice andPurchaseCurrency: (NSString *) purchaseCurrency;
 
 +(void) inAppPurchase:(NSString *)purchaseId withPurchaseType:(NSString *)purchaseType andPurchaseAmount:(NSInteger)purchaseAmount andResources: (NSDictionary *) resources;
 
-+(void) tutorialCompleted: (NSInteger) tutorialState;
++(void) tutorialCompleted: (NSUInteger) tutorialState;
 
 +(void) levelUp: (NSUInteger) level;
 
@@ -63,31 +42,23 @@
 
 +(void) socialNetworkPost: (SocialNetwork *) socialNetwork withReason: (NSString *) reason;
 
-//
-// Additional methods
-//
++(void) age: (NSInteger) age;
 
-+(void) referrer: (NSDictionary<ReferralProperty*, NSString*> *) utm;
++(void) gender: (Gender) gender;
 
-//
-// User profile methods
-//
++(void) cheater: (BOOL) cheater;
 
-+(People *) activeUser;
++(void) setUserId: (NSString *) userID;
 
-+(void) setUserId: (NSString *) userId;
-
-+(void) replaceUserId: (NSString *) prevUserId to: (NSString *) userId;
-
-//
-// Getters
-//
++(void) replaceUserId: (NSString *) prevUserId to: (NSString *) userID;
 
 +(NSString *) getUserId;
 
 +(NSString *) getOpenUdid;
 
 +(NSString *) getOdin1;
+
++(void) setActiveLog: (BOOL) isActive;
 
 +(NSString *) sdkVersion;
 
