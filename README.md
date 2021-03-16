@@ -1,6 +1,6 @@
 Latest Version
 --------------
-##### _March 26, 2020_ - [v1.6.0](https://github.com/devtodev-analytics/macos-sdk/releases/latest)
+##### _March 16, 2021_ - [v1.6.1](https://github.com/devtodev-analytics/macos-sdk/releases/latest)
 
 Getting Started
 ---------------
